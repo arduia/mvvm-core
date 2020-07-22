@@ -20,6 +20,14 @@ package com.arduia.mvvm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
+/**
+ * Base MutableLiveData that has LiveData casting with
+ * fun asLiveData() to use for encapsulations such as:
+ *
+ * Example -
+ * private val _data = BaseLiveData<String>();
+ * val data = _data.asLiveData()
+ */
 
 class BaseLiveData<T> : MutableLiveData<T>(){
     fun asLiveData(): LiveData<T> = this

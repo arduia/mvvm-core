@@ -19,7 +19,9 @@ package com.arduia.mvvm
 
 import androidx.lifecycle.Observer
 
-
+/**
+ * Event State with data that can be consumed once.
+ */
 open class Event<out T> (private val content: T){
 
     var hasHandled = false
@@ -37,7 +39,9 @@ open class Event<out T> (private val content: T){
     fun peekContent(): T = content
 }
 
-
+/**
+ * Observer that consume {@link Event} Data
+ */
 class EventObserver<T> (private val onEventUnhandledContent: (T)-> Unit): Observer<Event<T>>{
 
     override fun onChanged(event: Event<T>?) {
@@ -47,6 +51,10 @@ class EventObserver<T> (private val onEventUnhandledContent: (T)-> Unit): Observ
     }
 }
 
+/**
+ * For State Event that represent state with no data.
+ */
 val EventUnit get() =  Event(Unit)
+
 
 fun <T>event(content: T) = Event(content)

@@ -33,7 +33,7 @@ Heare is a basic example of implementing encapsulated MutableLiveData for LiveDa
 class MainViewModel: ViewModel(), LifecycleObserver{ 
 
     private val _hello = BaseLiveData<String>()
-    val hello = _hello.asLiveData()
+    val hello get() = _hello.asLiveData()
  
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate(){

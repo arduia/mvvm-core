@@ -1,6 +1,7 @@
 # MVVM Core 
-[![API-Level](https://img.shields.io/badge/API-21%2B-brightgreen)](https://android-arsenal.com/api?level=17)   [![Download](https://jitpack.io/v/arduia/mvvm-core.svg)](https://jitpack.io/#arduia/mvvm-core) 
 Base Elements for MVVM (Model-View-ViewModel) Architecture.
+[![API-Level](https://img.shields.io/badge/API-21%2B-brightgreen)](https://android-arsenal.com/api?level=17) [![Download](https://jitpack.io/v/arduia/mvvm-core.svg)](https://jitpack.io/#arduia/mvvm-core) 
+
 ## Including in your project   
 ### Gradle
 Add below codes to your **root** `build.gradle` file (not your module build.gradle file).

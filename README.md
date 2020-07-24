@@ -25,6 +25,7 @@ dependencies {
 	        implementation 'com.github.arduia:mvvm-core:0.0.1'
 	}
 ```
+
 ## Usage
 
 ### Live Data Encapsulation  
@@ -40,6 +41,26 @@ class MainViewModel: ViewModel(), LifecycleObserver{
         _hello.setValue("Hello World from MVVM Core")
     } 
 } 
+```
+
+## Dependencies(Optional)
+```gradle
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    
+    dependencies {
+    
+    def fragment_ktx_version = "1.2.5"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+    
+    }
+
 ```
 
 # License

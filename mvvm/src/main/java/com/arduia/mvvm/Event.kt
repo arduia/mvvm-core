@@ -42,7 +42,7 @@ open class Event<out T> (private val content: T){
 /**
  * Observer that consume {@link Event} Data
  */
-class EventObserver<T> (private val onEventUnhandledContent: (T)-> Unit): Observer<Event<T>>{
+class EventObserver<T> (private val onEventUnhandledContent: (T) -> Unit): Observer<Event<T>>{
 
     override fun onChanged(event: Event<T>?) {
         event?.getContentIfNotHandled()?.let {

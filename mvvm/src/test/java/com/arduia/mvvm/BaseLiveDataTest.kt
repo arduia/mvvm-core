@@ -1,6 +1,7 @@
 package com.arduia.mvvm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import org.junit.Assert.assertNull
 import org.junit.Rule
 import org.junit.Test
 
@@ -24,6 +25,7 @@ internal class BaseLiveDataTest {
     fun shouldSetReturnValue(){
         val setValue = "set"
         val liveData = BaseLiveData<String>()
+        assertNull(liveData.value)
         liveData.value = setValue
         val value = liveData.getOrAwaitValue {  }
         assert(value == setValue)

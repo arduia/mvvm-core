@@ -7,7 +7,7 @@ import org.junit.Test
 class EventTest{
 
     @Test
-    fun shouldIntAndPeekContentWork(){
+    fun shouldWorkInitAndPeekContent(){
         val eventValue = "EventValue"
         val event = Event(eventValue)
 
@@ -18,7 +18,7 @@ class EventTest{
     }
 
     @Test
-    fun shouldGetContentIfNotHandledWork(){
+    fun shouldWorkContentIfNotHandled(){
         val eventValue = "EventValue"
         val event = Event(eventValue)
 

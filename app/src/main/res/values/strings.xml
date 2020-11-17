@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">mvvm-core</string>
+    <string name="available">Available</string>
+    <string name="rotate_screen">Rotate Screen</string>
+    <string name="show_snack">Show Snack Message</string>
+    <string name="sample_msg">Sample Message</string>
 </resources>

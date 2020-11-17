@@ -84,7 +84,7 @@ lint/outputs/
 lint/tmp/
 # lint/reports/
 /app/
-/mvvm/
+/mvvm/build/
 /build/
 /gradle/
 /.gitignore

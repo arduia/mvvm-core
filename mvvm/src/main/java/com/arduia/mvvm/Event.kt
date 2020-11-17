@@ -20,6 +20,7 @@ package com.arduia.mvvm
 import androidx.lifecycle.Observer
 
 /**
+ * Inspired by Google
  * Event State with data that can be consumed once.
  */
 open class Event<out T> (private val content: T){
@@ -52,9 +53,11 @@ class EventObserver<T> (private val onEventUnhandledContent: (T) -> Unit): Obser
 }
 
 /**
- * For State Event that represent state with no data.
+ * Return New Unit Event for State Representation.
  */
 val EventUnit get() =  Event(Unit)
 
-
+/**
+ * New Event with content{T}
+ */
 fun <T>event(content: T) = Event(content)

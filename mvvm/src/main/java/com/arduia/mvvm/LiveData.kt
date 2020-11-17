@@ -29,7 +29,11 @@ import androidx.lifecycle.MutableLiveData
  * val data = _data.asLiveData()
  */
 
-class BaseLiveData<T> : MutableLiveData<T>(){
+class BaseLiveData<T>(initValue: T? = null) : MutableLiveData<T>() {
+    init {
+        value = initValue
+    }
+
     fun asLiveData(): LiveData<T> = this
 }
 
@@ -39,6 +43,6 @@ infix fun <T> MutableLiveData<T>.set(value: T) {
     setValue(value)
 }
 
-infix fun <T> MutableLiveData<T>.post(value: T){
+infix fun <T> MutableLiveData<T>.post(value: T) {
     postValue(value)
 }

@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+
+
     private fun inverseCurrentScreenOrientation(){
         requestedOrientation = when(getOrientation() == 2){
             true -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

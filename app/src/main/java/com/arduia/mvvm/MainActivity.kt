@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log.d
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.arduia.mvvm.databinding.ActivityMainBinding
+import java.lang.NullPointerException
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,7 +54,13 @@ class MainActivity : AppCompatActivity() {
         viewModel.onToastShow.observe(this, EventObserver{ msg ->
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         })
+
+        viewModel.nullInitialTest.observe(this, Observer {
+            if(it== null) throw NullPointerException("npe")
+        })
     }
+
+
 
     private fun inverseCurrentScreenOrientation(){
         requestedOrientation = when(getOrientation() == 2){

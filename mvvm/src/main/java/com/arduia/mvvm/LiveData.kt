@@ -31,7 +31,9 @@ import androidx.lifecycle.MutableLiveData
 
 class BaseLiveData<T>(initValue: T? = null) : MutableLiveData<T>() {
     init {
-        value = initValue
+        if (initValue != null) {
+            this.value = initValue
+        }
     }
 
     fun asLiveData(): LiveData<T> = this

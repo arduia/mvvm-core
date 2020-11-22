@@ -13,6 +13,9 @@ class MainViewModel: ViewModel(){
     private val _onToastShow = EventLiveData<String>()
     val onToastShow get() = _onToastShow.asLiveData()
 
+    private val _nullInitalTest = BaseLiveData<String>()
+    val nullInitialTest get() = _nullInitalTest.asLiveData()
+
     fun setAvailableOff(){
         _isAvailable set false
     }

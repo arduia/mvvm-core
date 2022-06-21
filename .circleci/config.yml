@@ -13,14 +13,21 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - run:
-          name: build app
-          command: ./gradlew ':app:assembleDebug'
-
+          name: Build Production Debug
+          command: ./gradlew ':app:assembleProductionDebug'
+      - run:
+          name: Build Production Release
+          command: ./gradlew ':app:assembleProductionRelease'
+      - run:
+          name: Build Tnd Debug
+          command: ./gradlew ':app:assembleTndDebug'
+      - run:
+          name: Build Tnd Release
+          command: ./gradlew ':app:assembleTndRelease
       - store_artifacts:
-          name: Store Debug APK
-          path: ~/project/app/build/outputs/apk/debug/app-debug.apk
-          destination: /debug/app-debug.apk
-
+          name: Store Build Applications
+          path: ~/project/app/build/outputs/apk/
+          destination: /builds/
   test:
     executor: android/android
 

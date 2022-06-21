@@ -30,6 +30,18 @@ android {
     buildFeatures{
         viewBinding true
     }
+
+    flavorDimensions "mvvm"
+    productFlavors {
+        production {
+            dimension "mvvm"
+        }
+
+        tnd {
+            dimension "mvvm"
+            applicationIdSuffix ".test"
+        }
+    }
 }
 
 dependencies {

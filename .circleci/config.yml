@@ -23,11 +23,16 @@ jobs:
           command: ./gradlew ':app:assembleTndDebug'
       - run:
           name: Build Tnd Release
-          command: ./gradlew ':app:assembleTndRelease
+          command: ./gradlew ':app:assembleTndRelease'
+      - run:
+          name: Remove Metadata JSON Files
+          command: rm ~/project/app/build/outputs/apk/*.json
+
       - store_artifacts:
           name: Store Build Applications
           path: ~/project/app/build/outputs/apk/
           destination: /builds/
+
   test:
     executor: android/android
 
@@ -41,8 +46,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
       - test
+      - build:
+          requires:
+            - test
 
 
 

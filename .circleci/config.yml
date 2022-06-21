@@ -6,7 +6,6 @@ orbs:
 jobs:
   build:
     executor: android/android
-
     steps:
       - checkout
       - run:
@@ -15,6 +14,8 @@ jobs:
       - run:
           name: build app
           command: ./gradlew ':app:assembleDebug'
+      - store_artifacts:
+          path: /app/build/outputs/debug/app-debug.apk
 
   test:
     executor: android/android

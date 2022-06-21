@@ -15,18 +15,11 @@ jobs:
       - run:
           name: build app
           command: ./gradlew ':app:assembleDebug'
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "Hello Artifacts" > "~/project/hello.txt"
-            mkdir "~/project/artifacts"
-            echo "Welcome Artifacts" > "~/project/hello2.txt"
 
       - store_artifacts:
+          name: Store Debug APK
           path: ~/project/app/build/outputs/apk/debug/app-debug.apk
           destination: /debug/app-debug.apk
-      - store_artifacts:
-          path: ~/project/
 
   test:
     executor: android/android

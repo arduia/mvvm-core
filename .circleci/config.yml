@@ -6,6 +6,7 @@ orbs:
 jobs:
   build:
     executor: android/android
+    working_directory: ~/project
     steps:
       - checkout
       - run:
@@ -14,9 +15,18 @@ jobs:
       - run:
           name: build app
           command: ./gradlew ':app:assembleDebug'
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "Hello Artifacts" > "~/project/hello.txt"
+            mkdir "~/project/artifacts"
+            echo "Welcome Artifacts" > "~/project/hello2.txt"
+
       - store_artifacts:
-          path: /app/build/outputs/apk/debug/app-debug.apk
+          path: ~/project/app/build/outputs/apk/debug/app-debug.apk
           destination: /debug/app-debug.apk
+      - store_artifacts:
+          path: ~/project/
 
   test:
     executor: android/android

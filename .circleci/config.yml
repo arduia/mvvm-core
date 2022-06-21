@@ -11,4 +11,23 @@ jobs:
       - checkout
       - run:
           name: chmod permissions
-          command: chmod +x ./gradlew
+          command: chmod +x ./gradlew ':app:assembleDebug'
+
+  test:
+    executor: android/android
+
+    steps:
+      - checkout
+      - run:
+          name: testing mvvm
+          command: chmod +x ./gradlew ':mvvm:testDebugUnitTest'
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+
+
+

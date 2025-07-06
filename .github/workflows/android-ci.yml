@@ -21,7 +21,7 @@ jobs:
         distribution: 'temurin'
         
     - name: Cache Gradle packages
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ~/.gradle/caches
@@ -45,7 +45,7 @@ jobs:
         ./gradlew :app:jacocoTestReport
         
     - name: Upload Unit Test Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: unit-test-results
@@ -54,7 +54,7 @@ jobs:
           mvvm/build/test-results/testDebugUnitTest/
           
     - name: Upload Coverage Reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: coverage-reports
@@ -63,7 +63,7 @@ jobs:
           mvvm/build/reports/jacoco/
           
     - name: Comment Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v2
+      uses: EnricoMi/publish-unit-test-result-action@v2.17.0
       if: always()
       with:
         files: |
@@ -85,7 +85,7 @@ jobs:
         distribution: 'temurin'
         
     - name: Cache Gradle packages
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: |
           ~/.gradle/caches
@@ -104,13 +104,13 @@ jobs:
       run: ./gradlew :mvvm:assembleDebug
       
     - name: Upload Debug APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: debug-apk
         path: app/build/outputs/apk/debug/*.apk
         
     - name: Upload MVVM Library
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: mvvm-library
         path: mvvm/build/outputs/aar/*.aar
@@ -122,7 +122,7 @@ jobs:
     
     steps:
     - name: Download Test Results
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: unit-test-results
         path: test-results/

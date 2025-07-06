@@ -7,7 +7,7 @@ plugins {
 group='com.github.arduia'
 
 android {
-    namespace "com.arduia.mvvm"
+    namespace "com.arduia.mvvm.core"
     compileSdk 34
 
     defaultConfig {

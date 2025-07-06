@@ -114,6 +114,7 @@ class EventEnhancedTest {
         
         // When
         liveData.observe(lifecycleOwner, observer)
+        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = null
         
         // Then
@@ -136,6 +137,7 @@ class EventEnhancedTest {
         
         // When
         liveData.observe(lifecycleOwner, observer)
+        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = event("event1")
         liveData.value = event("event2")
         liveData.value = event("event3")
@@ -166,6 +168,7 @@ class EventEnhancedTest {
         // When
         event.getContentIfNotHandled() // Handle the event manually
         liveData.observe(lifecycleOwner, observer)
+        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = event
         
         // Then

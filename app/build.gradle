@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace "com.arduia.mvvm"
-    compileSdk 35
+    compileSdk 34
     
     defaultConfig {
         applicationId "com.arduia.mvvm"
         minSdk 21
-        targetSdk 35
+        targetSdk 34
         versionCode 3
         versionName "0.0.3"
 

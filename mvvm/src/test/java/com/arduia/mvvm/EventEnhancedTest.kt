@@ -113,8 +113,12 @@ class EventEnhancedTest {
         }
         
         // When
+        // First activate the lifecycle to STARTED state
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_CREATE)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_START)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_RESUME)
+        
         liveData.observe(lifecycleOwner, observer)
-        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = null
         
         // Then
@@ -136,8 +140,12 @@ class EventEnhancedTest {
         }
         
         // When
+        // First activate the lifecycle to STARTED state
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_CREATE)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_START)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_RESUME)
+        
         liveData.observe(lifecycleOwner, observer)
-        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = event("event1")
         liveData.value = event("event2")
         liveData.value = event("event3")
@@ -167,8 +175,13 @@ class EventEnhancedTest {
         
         // When
         event.getContentIfNotHandled() // Handle the event manually
+        
+        // First activate the lifecycle to STARTED state
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_CREATE)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_START)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_RESUME)
+        
         liveData.observe(lifecycleOwner, observer)
-        lifecycle.makeFakeConfigurationChanges() // Activate the lifecycle
         liveData.value = event
         
         // Then
@@ -193,6 +206,11 @@ class EventEnhancedTest {
         }
         
         // When
+        // First activate the lifecycle to STARTED state
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_CREATE)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_START)
+        lifecycle.handleLifecycleEvent(androidx.lifecycle.Lifecycle.Event.ON_RESUME)
+        
         liveData.observe(lifecycleOwner, observer)
         liveData.value = event(eventValue)
         

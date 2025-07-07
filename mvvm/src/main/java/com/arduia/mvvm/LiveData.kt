@@ -29,11 +29,13 @@ import androidx.lifecycle.MutableLiveData
  * val data = _data.asLiveData()
  */
 
-class BaseLiveData<T>(initValue: T? = null) : MutableLiveData<T>() {
-    init {
-        if (initValue != null) {
-            this.value = initValue
-        }
+class BaseLiveData<T> : MutableLiveData<T> {
+    constructor() : super() {
+        this.value = null
+    }
+    
+    constructor(initValue: T?) : super() {
+        this.value = initValue
     }
 
     fun asLiveData(): LiveData<T> = this

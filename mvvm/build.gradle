@@ -9,11 +9,11 @@ group='com.github.arduia'
 
 android {
     namespace "com.arduia.mvvm.core"
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 21
-        targetSdk 34
+        targetSdk 35
         versionCode 3
         versionName "0.0.3"
 

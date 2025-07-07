@@ -16,9 +16,15 @@ jobs:
     executor:
       name: android/android-machine
       resource-class: large
-      tag: 2021.10.1
+      tag: 2024.11.1
     steps:
       - checkout
+      - run:
+          name: Verify Java version
+          command: |
+            echo "Java version:"
+            java -version
+            echo "JAVA_HOME: $JAVA_HOME"
       - run:
           name: Setup permissions
           command: chmod +x ./gradlew
@@ -64,9 +70,14 @@ jobs:
     executor:
       name: android/android-machine
       resource-class: large
-      tag: 2021.10.1
+      tag: 2024.11.1
     steps:
       - checkout
+      - run:
+          name: Verify Java version
+          command: |
+            echo "Java version:"
+            java -version
       - run:
           name: Setup permissions
           command: chmod +x ./gradlew

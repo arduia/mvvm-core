@@ -13,7 +13,10 @@ workflows:
 
 jobs:
   test:
-    executor: android/android
+    executor:
+      name: android/android-machine
+      resource-class: large
+      tag: 2021.10.1
     steps:
       - checkout
       - run:
@@ -58,7 +61,10 @@ jobs:
       - android/save-gradle-cache
 
   build:
-    executor: android/android
+    executor:
+      name: android/android-machine
+      resource-class: large
+      tag: 2021.10.1
     steps:
       - checkout
       - run:
